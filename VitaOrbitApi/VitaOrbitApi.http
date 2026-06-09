@@ -1,0 +1,6 @@
+@VitaOrbitApi_HostAddress = http://localhost:5052
+
+GET {{VitaOrbitApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
