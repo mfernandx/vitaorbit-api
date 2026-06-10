@@ -616,6 +616,14 @@ const api = axios.create({
 
 ---
 
+# 🎥 Link do Pitch
+
+```text
+https://youtu.be/igqC9mIPjn0?si=m8pwFMwx-kx_2Iea
+```
+
+---
+
 # 👨‍💻 Integrantes da Equipe
 
 * Maria Fernanda Santos Mendes - 2TDSPI
