@@ -292,6 +292,161 @@ http://localhost:5052/scalar/v1
 
 ---
 
+# 📱 Integração com Frontend
+
+A API foi projetada para integração futura com um aplicativo mobile desenvolvido em:
+
+* React Native
+* Expo
+* TypeScript
+
+As requisições poderão ser realizadas através de bibliotecas como:
+
+* Axios
+* Fetch API
+
+Exemplo:
+
+```typescript
+const api = axios.create({
+  baseURL: "http://192.168.X.X:5052/api"
+});
+```
+
+---
+
+# 🌐 Requisitos de Rede
+
+Para integração entre o aplicativo mobile e a API:
+
+* Computador e dispositivo móvel devem estar conectados à mesma rede Wi-Fi.
+* A API deve estar em execução localmente.
+* O endereço IP local da máquina deve ser utilizado como baseURL da aplicação mobile.
+
+Exemplo:
+
+```typescript
+const API_URL = "http://192.168.15.26:5052/api";
+```
+
+---
+
+# 🔧 Ferramentas Necessárias
+
+Para executar o projeto localmente, é necessário ter os seguintes softwares instalados:
+
+## Backend
+
+### .NET SDK
+
+Versão utilizada:
+
+```text
+.NET 10
+```
+
+Download:
+
+https://dotnet.microsoft.com/download
+
+---
+
+### Microsoft Visual Studio 2022
+
+Recomendado para desenvolvimento da API.
+
+Workloads necessários:
+
+* ASP.NET and Web Development
+* .NET Desktop Development
+
+Download:
+
+https://visualstudio.microsoft.com/
+
+---
+
+### Oracle Database Express Edition (XE)
+
+Banco de dados utilizado pela aplicação.
+
+Versão recomendada:
+
+```text
+Oracle Database Express Edition (XE) 21c
+```
+
+Download:
+
+https://www.oracle.com/database/technologies/xe-downloads.html
+
+---
+
+### Oracle SQL Developer
+
+Ferramenta utilizada para administração e consulta ao banco de dados Oracle.
+
+Download:
+
+https://www.oracle.com/database/sqldeveloper/
+
+---
+
+### Entity Framework Core Tools
+
+Utilizadas para criação e execução de migrations.
+
+Instalação:
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+Verificar instalação:
+
+```bash
+dotnet ef --version
+```
+
+---
+
+### Git
+
+Utilizado para versionamento do projeto.
+
+Download:
+
+https://git-scm.com/downloads
+
+---
+
+### Postman
+
+Utilizado para testes dos endpoints da API.
+
+Download:
+
+https://www.postman.com/downloads/
+
+
+---
+
+# 💾 Banco de Dados
+
+O projeto foi desenvolvido utilizando:
+
+```text
+Oracle Database Express Edition (XE)
+```
+
+Connection String utilizada durante o desenvolvimento:
+
+```text
+Data Source=localhost:1521/XEPDB1
+```
+
+---
+
 # 🚀 Como Executar o Projeto
 
 ## 1. Clonar o repositório
@@ -590,29 +745,6 @@ POST /api/Alert
 ```
 
 > Um alerta deve estar vinculado obrigatoriamente a um `HealthRecord` ou a um `SymptomRecord`, mas nunca aos dois ao mesmo tempo.
-
----
-
-# 📱 Integração com Frontend
-
-A API foi projetada para integração futura com um aplicativo mobile desenvolvido em:
-
-* React Native
-* Expo
-* TypeScript
-
-As requisições poderão ser realizadas através de bibliotecas como:
-
-* Axios
-* Fetch API
-
-Exemplo:
-
-```typescript
-const api = axios.create({
-  baseURL: "http://192.168.X.X:5052/api"
-});
-```
 
 ---
 
