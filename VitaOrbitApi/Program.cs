@@ -6,7 +6,11 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 //Buscando conecxão com o banco de dados Oracle a partir do arquivo appsettings.json
-var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
+//var connectionString = builder.Configuration.GetConnectionString("OracleConnection");
+
+var connectionString =
+    Environment.GetEnvironmentVariable("OracleConnection")
+    ?? builder.Configuration.GetConnectionString("OracleConnection");
 
 //Injetando o contexto do banco de dados na aplicação, utilizando a string de conexão obtida
 builder.Services.AddDbContext<AppDbContext>(
@@ -65,5 +69,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.MapControllers();
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5052";
+app.Urls.Add($"http://0.0.0.0:{port}");
 app.Run();
 
