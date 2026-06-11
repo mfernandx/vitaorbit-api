@@ -51,25 +51,21 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.MapOpenApi();
+
+app.MapScalarApiReference(options =>
 {
-    app.MapOpenApi();
+    options
+        .WithTitle("VitaOrbit API")
+        .WithTheme(ScalarTheme.BluePlanet)
+        .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+});
 
-    app.MapScalarApiReference(options =>
-    {
-        options
-            .WithTitle("VitaOrbit API")
-            .WithTheme(ScalarTheme.BluePlanet)
-            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
-    });
-}
-
-//app.UseHttpsRedirection();
 app.UseCors("AllowFrontend");
 app.UseAuthorization();
 app.MapControllers();
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5052";
-app.Urls.Add($"http://0.0.0.0:{port}");
-app.Run();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+app.Urls.Add($"http://0.0.0.0:{port}");
+
+app.Run();
